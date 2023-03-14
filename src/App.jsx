@@ -49,18 +49,18 @@ function App() {
       textAlign:'center',
       height: '100vh', 
     }}>
-      <nav class="navbar bg-body-tertiary">
-        <div class="container-fluid">
-          <span class="navbar-brand mb-0 h1">Bitcoin Converter</span>
+      <nav className="navbar bg-body-tertiary">
+        <div className="container-fluid">
+          <span className="navbar-brand mb-0 h1">Bitcoin Converter</span>
           <button onClick={conversionHandler} >View Conversions</button>
-            <div class="dropdown">
-              <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <div className="dropdown">
+              <button className="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Currency Converter
               </button>
               <ul class="dropdown-menu">
-                <button class="dropdown-item" type="button" onClick={USDHandler} >USD Converter</button>
-                <button class="dropdown-item" type="button" onClick={EURHandler} >EUR Converter</button>
-                <button class="dropdown-item" type="button" onClick={GBPHandler} >GBP Converter</button>
+                <button className="dropdown-item" type="button" onClick={USDHandler} >USD Converter</button>
+                <button className="dropdown-item" type="button" onClick={EURHandler} >EUR Converter</button>
+                <button className="dropdown-item" type="button" onClick={GBPHandler} >GBP Converter</button>
               </ul>
             </div>
    
@@ -85,7 +85,7 @@ function App() {
       
 
       
-      <div class="d-flex align-items-end">
+      <div className="fixed-bottom">
       <CurrentTime dataTime={dataTime} setDataTime={setDataTime} fetchAPI={fetchAPIData} fetchTime={fetchTime} setFetchTime={setFetchTime}></CurrentTime>
       </div>
       </div>
