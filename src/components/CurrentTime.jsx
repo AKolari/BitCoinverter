@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useState, useEffect } from "react";
 
-function CurrentTime({dataTime, setDataTime, fetchAPI, fetchTime, setFetchTime}){
+function CurrentTime({localTime, setLocalTime, dataTime, setDataTime, fetchAPI, fetchTime, setFetchTime}){
 
     
     
@@ -10,7 +10,9 @@ function CurrentTime({dataTime, setDataTime, fetchAPI, fetchTime, setFetchTime})
         if(Date.now()/1000-localStorage.getItem('myTime')>300){
           fetchAPI();
           setFetchTime(Date.now()/1000);
+          setLocalTime(Date())
           localStorage.setItem('myTime', Date.now()/1000);
+          localStorage.setItem('localTime', Date());
           
         }
         else{
@@ -20,7 +22,9 @@ function CurrentTime({dataTime, setDataTime, fetchAPI, fetchTime, setFetchTime})
       }else {if(Date.now()/1000-fetchTime>300){
         fetchAPI();
         setFetchTime(Date.now()/1000);
+        setLocalTime(Date())
         localStorage.setItem('myTime', Date.now()/1000);
+        localStorage.setItem('localTime', Date());
       
       }
       else{
@@ -40,8 +44,12 @@ function CurrentTime({dataTime, setDataTime, fetchAPI, fetchTime, setFetchTime})
     return <div style={{
         textAlign:'center'
     }}>
-      <button onClick={clickHandler} >Click to Update Rates</button>
-      <p>Time data retrieved: {JSON.stringify(dataTime)}</p>
+      <button onClick={clickHandler} >Refresh</button>
+      <h4>Time data retrieved: </h4>
+      {!localTime && <h6><b>{Date()}</b></h6>}
+      {!!localTime && <h6><b>{localTime}</b></h6>}
+      <h6><b>{JSON.stringify(dataTime)}</b></h6>
+     
         
     </div>
 

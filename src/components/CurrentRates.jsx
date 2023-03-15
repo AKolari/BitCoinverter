@@ -44,18 +44,31 @@ function CurrentRates({BitRates, setBitRates}){
 
     
 
-    return <div style={{
-        textAlign:'center'
+    return <div className="container" style={{
+        textAlign:'center',
+        color: 'white',
+        
     }}>
-       
+        <div  className="row bg-dark p-5 border border-2 border-secondary rounded-5 ">
+        <div className="col">
         {Object.keys(BitRates).map((cur)=>{
             return <p key={`${cur}`} >
-               The conversion rate from {BitRates[cur].description} to Bitcoin is {BitRates[cur].rate_float} to 1
+               The conversion rate from <b>{BitRates[cur].description}</b> <i>{`(${BitRates[cur].code})`}</i> to <b>Bitcoin</b> is <b>{BitRates[cur].rate_float}</b> to <b>1</b>
             </p>
 
         })}
+        </div>
+        <div className="col">
+         {Object.keys(BitRates).map((cur)=>{
+            return <p key={`${cur}`} >
+               The conversion rate from <b>Bitcoin</b> to <b>{BitRates[cur].description}</b> <i>{`(${BitRates[cur].code})`}</i> is <b>{1/BitRates[cur].rate_float}</b> to <b>1</b>
+            </p>
+        
+        })}
+        </div>
+        </div>
 
-        <button onClick={orderManager}>Sort Exchange Rates</button>
+        <button className="m-2" onClick={orderManager}>Sort Exchange Rates</button>
 
        
         
