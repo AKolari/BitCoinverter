@@ -62,7 +62,7 @@ function App() {
 			<nav className="navbar bg-dark ">
 				<div className="container-fluid justify-end ">
 					<span className="navbar-brand mb-0 h1 text-white justify-content-start ">
-						Bitcoin Converter
+						Bitcoinverter
 					</span>
 					<span className="d-flex">
 						<button className="" onClick={conversionHandler}>
